@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-dark: #0a0a0a;
+  --brand-primary: #D4A574;
+  --brand-secondary: #8B6914;
+  --brand-cream: #F5E6D3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--brand-dark);
+  color: white;
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--brand-dark);
+  overflow-x: hidden;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Screw CSS fallback */
+.screw {
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.screw-head {
+  background: radial-gradient(circle at 30% 30%, #c0c0c0, #808080, #505050);
+  border-radius: 50%;
+  position: relative;
+}
+
+.screw-head::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: #404040;
+  transform: translateY(-50%);
+}
+
+.screw-head::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  bottom: 15%;
+  width: 2px;
+  background: #404040;
+  transform: translateX(-50%);
+}
+
+/* Before/After slider */
+.before-after-container {
+  position: relative;
+  overflow: hidden;
+  cursor: ew-resize;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Gallery hover */
+.gallery-item {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 20px 60px rgba(212, 165, 116, 0.15);
+}
+
+/* Stat counter */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Selection */
+::selection {
+  background: rgba(212, 165, 116, 0.3);
+  color: white;
+}
